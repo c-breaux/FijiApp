@@ -1,0 +1,40 @@
+---
+title: "Shiny Presentation"
+author: "Cory Breaux"
+date: "3/11/2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## About the App
+
+This app allows the user to plot the locations of earthquakes recorded off the island of Fiji since 1964.
+
+- The userface is simple, comprising a pair of sliders and a Leaflet map to display the output.
+- The sliders allow the user to filter the data by the depth of the earthquake or its magnitude.
+- At launch, all earthquakes are displayed.
+- Zooming in on a specific earthquake and hovering over its marker will display its magnitude and depth.
+
+## About the data
+
+The app uses the default R dataset 'quakes'. The data includes 1000 observations.
+
+```{r quakes, echo = TRUE}
+summary(quakes)
+```
+
+## A little more about the data
+
+Though this app allows the user to filter the data on depth and magnitude, a quick look at the dataset shows little or no correlation between the two variables. Depth is measured in kilometers, and magnitude is measured according to the Richter Scale.
+
+```{r, echo=TRUE}
+plot(x=quakes$depth, y=quakes$mag)
+```
+
+## Application Resources
+
+- App link: https://c-breaux.shinyapps.io/FijiQuakes/
+- Source code repository: https://github.com/c-breaux/FijiApp
